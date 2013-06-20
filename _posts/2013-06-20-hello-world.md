@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: posts
 title: Hello World | Posts | Josh Minnie
 post_title: Hello World
 post_author: Josh Minnie
