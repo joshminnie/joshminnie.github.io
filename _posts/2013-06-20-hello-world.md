@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Hello World | Posts | Josh Minnie
+post_title: Hello World
 post_author: Josh Minnie
 date:   2013-06-20 15:20:00
 categories: personal
