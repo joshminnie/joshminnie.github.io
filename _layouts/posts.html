@@ -11,13 +11,12 @@ layout: default
   </div>
 </div>
 
-<h1>{{ page.post_title }}</h1>
-
 <div class="row">
   <div class="span8">
-    <article>
+    <article class="post">
+      <h1>{{ page.post_title }}</h1>
       <p>by {{ page.post_author }} on {{ page.date | date: "%m-%d-%Y" }}</p>
-      <div class="post">{{ content }}</div>
+      <div class="post-content">{{ content }}</div>
     </article>
   </div>
 
