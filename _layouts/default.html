@@ -14,22 +14,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">Joshua Minnie</h1>
-        <p class="header">Christian, husband, father, son, developer and blogger.</p>
-        <ul>
-          <li><a class="buttons github" href="https://github.com/joshminnie">Github Profile</a></li>
-        </ul>
-      </header>
-
+      {% include header.html %}
       <section>
         {{ content }}
       </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
+      {% include footer.html %}
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-
   </body>
 </html>
