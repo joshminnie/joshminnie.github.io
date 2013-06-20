@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<div class="row">
+  <div class="span12">
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a> <span class="divider">/</span></li>
+      <li><a href="/categories/{{ page.categories }}">{{ page.categories | first | capitalize  }}</a> <span class="divider">/</span></li>
+      <li class="active">{{ page.title }}</li>
+    </ul>
+  </div>
+</div>
+
+<h1><a href="{{ post.url }}">{{ page.title }}</a></h1>
+
+<div class="row">
+  <div class="span8">
+    <article>
+      <p>by {{ page.post_author }} on {{ page.date | date: "%m-%d-%Y" }}</p>
+      <div class="post">{{ content }}</div>
+    </article>
+  </div>
+
+  <div class="span4"></div>
+</div>
