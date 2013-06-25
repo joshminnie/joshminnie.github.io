@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sorting in .NET
+categories: Development
 tags:
 - .NET
 - comparison
@@ -70,8 +71,10 @@ meta:
         }
     }
 {% endhighlight %}
+<div class="clearfix"></div>
 <p>In order to fix my sorting behavior, I had to add another field to make sure that the sort was maintained
   with values that were the same.</p>
+<div class="clearfix"></div>
 {% highlight csharp linenos %}
     public int CompareTo(MyClass other)
     {
@@ -79,4 +82,5 @@ meta:
         return result == 0 ? this.MyName.CompareTo(other.MyName) : result;
     }
 {% endhighlight %}
+<div class="clearfix"></div>
 <p>That solved my problem, hopefully it helps if someone else runs into this issue.</p>

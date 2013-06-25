@@ -9,7 +9,17 @@
       <a class="brand" href="{{ site.url }}">Joshua Minnie</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
+          {% if page.url == "/index.html" %}
           <li class="active"><a href="{{ site.url }}">Home</a></li>
+          {% else %}
+          <li><a href="{{ site.url }}">Home</a></li>
+          {% endif %}
+
+          {% if page.url == "/about/index.html" %}
+          <li class="active"><a href="{{ site.url }}about/">About</a></li>
+          {% else %}
+          <li><a href="{{ site.url }}about/">About</a></li>
+          {% endif %}
         </ul>
       </div>
     </div>
