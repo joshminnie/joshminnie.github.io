@@ -5,22 +5,20 @@ layout: default
   <div class="span12">
     <ul class="breadcrumb">
       <li><a href="/">Home</a> <span class="divider">/</span></li>
-      <li><a href="/categories/{{ page.categories }}">{{ page.categories | first | capitalize  }}</a> <span class="divider">/</span></li>
+      <!-- <li><a href="/categories/{{ page.categories }}">{{ page.categories | first | capitalize  }}</a> <span class="divider">/</span></li> -->
       <li class="active">{{ page.title }}</li>
     </ul>
   </div>
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span12">
     <article class="post">
-      <h1>{{ page.title }}</h1>
-      <p>by {{ page.post_author }} on {{ page.date | date: "%m-%d-%Y" }}</p>
-      <div class="post-content">{{ content }}</div>
+      <div class="post-content">
+        <h1>{{ page.title }}</h1>
+        <p><small>by {{ page.post_author }} on {{ page.date | date: "%m-%d-%Y" }}</small></p>
+        {{ content }}
+      </div>
     </article>
-  </div>
-
-  <div class="span4">
-    {% include sidebar.html %}
   </div>
 </div>

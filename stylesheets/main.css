@@ -1,10 +1,8 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-img.alignright {float:right; margin:0 0 1em 1em}
-img.alignleft {float:left; margin:0 1em 1em 0}
-img.aligncenter {display: block; margin-left: auto; margin-right: auto}
-.alignright {float:right; }
-.alignleft {float:left; }
-.aligncenter {display: block; margin-left: auto; margin-right: auto}
+.alignright{float:right;}
+.alignleft{float:left;}
+.aligncenter{display:block;margin-left:auto;margin-right:auto;}
+img.alignright{margin:0 0 1em 1em;}
+img.alignleft{margin:0 1em 1em 0;}
+img.aligncenter{display:block;margin-left:auto;margin-right:auto;}
+.nav,.breadcrumb,.pagination{font-weight:300;}
+.post .post-content,.post .post-content h1,.post .post-content h3{font-weight:300;}

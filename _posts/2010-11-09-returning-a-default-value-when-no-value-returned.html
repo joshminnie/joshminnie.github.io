@@ -1,0 +1,85 @@
+---
+layout: post
+title: Returning a default value when no value returned
+post_author: Josh Minnie
+tags:
+- default values
+- Development
+- programming support
+- SQL
+- sql database
+- subquery
+meta:
+  dsq_thread_id: '284242323'
+---
+<p>Today, I came across a problem where, after a lot of searching through forums and other various mediums of programming support, I was basically told it couldn't be done. I don't like to take &quot;it's impossible&quot; for an answer, so I continued to dive into it and I finally came up with a solution.</p>
+
+<h4>The Problem</h4>
+
+<p>Using an SQL database, I had a value that I was searching for. I knew that the row would not be there in the case that we were using the default value. I needed to always return something, even if it was just the default value. I also needed to return multiple default values from multiple rows as a single row. One catch that was the results needed to be returned through a view. The reason for this is that we were using some home-brewed replication of our database, that only synced the necessary data into tables. When information that was normally retrieved through a view was needed, we simply created a table with the same structure and name as the view. Made things simple, right? Great for the replication, didn't seem so in this case.</p>
+
+<h4>The Solution</h4>
+
+<p>At first, I thought, I could just use the <a title="ISNULL (MSDN Reference)" href="http://msdn.microsoft.com/en-us/library/ms184325.aspx" target="_blank">ISNULL</a> command.</p>
+
+<div class="row">
+  <div class="span12">
+{% highlight sql linenos %}
+SELECT
+	ISNULL([Field], 'DefaultValue') AS [FieldName]
+FROM
+	[Table]
+WHERE
+	[KeyField] = 'KeyValue'
+{% endhighlight %}
+  </div>
+</div>
+
+<p>The problem with this was that since it didn't return any rows, there was nothing to use ISNULL on. To remedy, that I decided to go the route of a subquery.</p>
+
+<div class="row">
+  <div class="span12">
+{% highlight sql linenos %}
+SELECT
+	ISNULL((
+		SELECT
+			[Table].[Field]
+		FROM
+			[Table]
+		WHERE
+			[Table].[KeyField] = 'KeyValue1'),'DefaultValue1') AS [Field1]
+{% endhighlight %}
+  </div>
+</div>
+
+<p>And with that I was able to get the results I needed, however, I needed to return the values of multiple rows as a single row.</p>
+
+<div class="row">
+  <div class="span12">
+{% highlight sql linenos %}
+SELECT
+	[Field1]
+	,[Field2]
+FROM
+	(
+		SELECT
+			ISNULL((
+				SELECT
+					[Table].[Field]
+				FROM
+					[Table]
+				WHERE
+					[Table].[KeyField] = 'KeyValue1'),'DefaultValue1') AS [Field1]
+			,ISNULL((
+				SELECT
+					[Table].[Field]
+				FROM
+					[Table]
+				WHERE
+					[Table].[KeyField] = 'KeyValue2'),'DefaultValue2') AS [Field2]
+	) AS Results
+{% endhighlight %}
+  </div>
+</div>
+
+<p><em>As a bit of warning:  My solution does use a number of subqueries and depending on your database structure and row count this solution could be a bit on the sluggish side.  As always, make sure you run through the execution plan to optimize the query where you can.</em></p>

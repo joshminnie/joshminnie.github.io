@@ -1,30 +1,23 @@
 ---
 layout: post
 title: Sorting in .NET
-categories: Development
+post_author: Josh Minnie
 tags:
 - .NET
 - comparison
 - Development
 - sorting
 - string.Format
-status: publish
-type: post
-published: true
 meta:
   dsq_thread_id: '486708366'
 ---
 
-<p>
-  <img class="img img-rounded img-polaroid alignleft" title="data-sorting-lego" src="/assets/data-sorting-lego-150x150.jpg" alt="" width="150" height="150" />
-  I found some very interesting behavior in the <a title="List(Of T).Sort Method" href="http://msdn.microsoft.com/en-us/library/b0zbh7b6.aspx" target="_blank">.NET sort</a>
-  method today that I thought I would share in case it catches anyone else off guard.
-</p>
-<p>To set up the scenario, I had two objects that had the same value for the property that was being compared. 
-  These objects were already in the order I wanted them to be in; although, in the context of the other objects
-  in the list, they needed to be sorted correctly.  The result was the two objects with the same value were now
-  in the opposite order. I've provided a little sample code that demonstrates the problem.</p>
-<div class="clearfix"></div>
+<p>I found some very interesting behavior in the <a title="List(Of T).Sort Method" href="http://msdn.microsoft.com/en-us/library/b0zbh7b6.aspx" target="_blank">.NET sort</a> method today that I thought I would share in case it catches anyone else off guard.</p>
+
+<p>To set up the scenario, I had two objects that had the same value for the property that was being compared. These objects were already in the order I wanted them to be in; although, in the context of the other objects in the list, they needed to be sorted correctly. The result was the two objects with the same value were now in the opposite order. I've provided a little sample code that demonstrates the problem.</p>
+
+<div class="row">
+  <div class="span12">
 {% highlight csharp linenos %}
     internal static class Program
     {
@@ -71,10 +64,13 @@ meta:
         }
     }
 {% endhighlight %}
-<div class="clearfix"></div>
-<p>In order to fix my sorting behavior, I had to add another field to make sure that the sort was maintained
-  with values that were the same.</p>
-<div class="clearfix"></div>
+  </div>
+</div>
+
+<p>In order to fix my sorting behavior, I had to add another field to make sure that the sort was maintained with values that were the same.</p>
+
+<div class="row">
+  <div class="span12">
 {% highlight csharp linenos %}
     public int CompareTo(MyClass other)
     {
@@ -82,5 +78,7 @@ meta:
         return result == 0 ? this.MyName.CompareTo(other.MyName) : result;
     }
 {% endhighlight %}
-<div class="clearfix"></div>
+  </div>
+</div>
+
 <p>That solved my problem, hopefully it helps if someone else runs into this issue.</p>
