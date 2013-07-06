@@ -5,4 +5,4 @@ img.alignright{margin:0 0 1em 1em;}
 img.alignleft{margin:0 1em 1em 0;}
 img.aligncenter{display:block;margin-left:auto;margin-right:auto;}
 .nav,.breadcrumb,.pagination{font-weight:300;}
-.post .post-content,.post .post-content h1,.post .post-content h3{font-weight:300;}
+.post .post-content,.page .page-content,.post .post-content h1,.page .page-content h1,.post .post-content h2,.page .page-content h2,.post .post-content h3,.page .page-content h3{font-weight:300;}
