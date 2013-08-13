@@ -3,6 +3,7 @@ layout: default
 title: Home | Joshua Minnie
 ---
 {% for post in paginator.posts %}
+  {% assign author = site.authors[post.author] %}
 <article class="post">
   <div class="row-fluid">
     <div class="span12">
@@ -10,7 +11,7 @@ title: Home | Joshua Minnie
       <div class="row-fluid">
         <div class="span12">
           <ul class="list-inline">
-            <li><small><i class="icon-user"></i> {{ post.post_author }}</small></li>
+            <li><small><i class="icon-user"></i> {{ author.display_name }}</small></li>
             <li><small><i class="icon-calendar"></i> {{ post.date | date: "%m-%d-%Y" }}</small></li>
           </ul>
         </div>
