@@ -1,16 +1,14 @@
 ---
 layout: post
 title: Returning a default value when no value returned
-post_author: Josh Minnie
+author: josh
 tags:
 - default values
-- Development
+- development
 - programming support
-- SQL
+- sql
 - sql database
 - subquery
-meta:
-  dsq_thread_id: '284242323'
 ---
 <p>Today, I came across a problem where, after a lot of searching through forums and other various mediums of programming support, I was basically told it couldn't be done. I don't like to take &quot;it's impossible&quot; for an answer, so I continued to dive into it and I finally came up with a solution.</p>
 
@@ -22,8 +20,6 @@ meta:
 
 <p>At first, I thought, I could just use the <a title="ISNULL (MSDN Reference)" href="http://msdn.microsoft.com/en-us/library/ms184325.aspx" target="_blank">ISNULL</a> command.</p>
 
-<div class="row">
-  <div class="span12">
 {% highlight sql linenos %}
 SELECT
 	ISNULL([Field], 'DefaultValue') AS [FieldName]
@@ -32,13 +28,9 @@ FROM
 WHERE
 	[KeyField] = 'KeyValue'
 {% endhighlight %}
-  </div>
-</div>
 
 <p>The problem with this was that since it didn't return any rows, there was nothing to use ISNULL on. To remedy, that I decided to go the route of a subquery.</p>
 
-<div class="row">
-  <div class="span12">
 {% highlight sql linenos %}
 SELECT
 	ISNULL((
@@ -49,13 +41,9 @@ SELECT
 		WHERE
 			[Table].[KeyField] = 'KeyValue1'),'DefaultValue1') AS [Field1]
 {% endhighlight %}
-  </div>
-</div>
 
 <p>And with that I was able to get the results I needed, however, I needed to return the values of multiple rows as a single row.</p>
 
-<div class="row">
-  <div class="span12">
 {% highlight sql linenos %}
 SELECT
 	[Field1]
@@ -79,7 +67,5 @@ FROM
 					[Table].[KeyField] = 'KeyValue2'),'DefaultValue2') AS [Field2]
 	) AS Results
 {% endhighlight %}
-  </div>
-</div>
 
-<p><em>As a bit of warning:  My solution does use a number of subqueries and depending on your database structure and row count this solution could be a bit on the sluggish side.  As always, make sure you run through the execution plan to optimize the query where you can.</em></p>
+<p><em class="text-warning">As a bit of warning:  My solution does use a number of subqueries and depending on your database structure and row count this solution could be a bit on the sluggish side.  As always, make sure you run through the execution plan to optimize the query where you can.</em></p>

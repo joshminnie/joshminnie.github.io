@@ -2,6 +2,8 @@
 layout: default
 comments: true
 ---
+{% assign author = site.authors[page.author] %}
+
 <div class="row">
   <div class="col-12 col-lg-12">
     <ul class="breadcrumb">
@@ -17,7 +19,7 @@ comments: true
     <article class="post">
       <div class="post-content">
         <h1>{{ page.title }}</h1>
-        <p><small>by {{ page.post_author }} on {{ page.date | date: "%m-%d-%Y" }}</small></p>
+        <p class="text-muted"><small>Written by {{ author.display_name }} on {{ page.date | date: "%m-%d-%Y" }}</small></p>
         {{ content }}
       </div>
     </article>
