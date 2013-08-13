@@ -5,6 +5,7 @@
 @import "variables.less"; // Modify this for custom colors, font-sizes, etc
 @import "mixins.less";
 
+body { padding-top: 70px; }
 
 .alignright   { float:right; }
 .alignleft    { float:left; }
@@ -32,12 +33,11 @@ img {
   .label {
     font-size: 0.7em;
     padding: 4px 6px 4px 4px;
-    background-color: fadeout(@black, 50%);
+    // background-color: fadeout(@black, 50%);
   }
   .tags {
-    ul.inline > li {
-      padding-left: 0;
-      padding-right: 0;
+    ul.list-inline > li {
+      padding: 0 0 5px 0;
     }
   }
 }
