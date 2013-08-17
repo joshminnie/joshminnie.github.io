@@ -1,4 +1,5 @@
 url: /
+permalink: /:title
 
 pygments: true
 paginate: 5
