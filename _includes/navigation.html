@@ -1,25 +1,36 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
   <div class="container">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="{{ site.url }}">Joshua Minnie</a>
-    <div class="nav-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        {% if page.url == "/index.html" %}
-        <li class="active"><a href="{{ site.url }}">Home</a></li>
-        {% else %}
-        <li><a href="{{ site.url }}">Home</a></li>
-        {% endif %}
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{site.url}}">Joshua Minnie</a>
+    </div>
 
-        {% if page.url == "/about/index.html" %}
-        <li class="active"><a href="{{ site.url }}about/">About</a></li>
-        {% else %}
-        <li><a href="{{ site.url }}about/">About</a></li>
-        {% endif %}
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{{site.url}}/about/">About</a>
+        </li>
+        <li>
+          <a rel="tooltip" title="Follow me on Twitter" data-placement="bottom" href="https://twitter.com/{{site.author.twitter}}" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a rel="tooltip" title="Follow me on Facebook" data-placement="bottom" href="https://www.facebook.com/{{site.author.facebook}}" target="_blank">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a rel="tooltip" title="Follow me on Instagram" data-placement="bottom" href="https://www.instagram.com/{{site.author.instagram}}" target="_blank">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
       </ul>
-    </div><!-- /.nav-collapse -->
-  </div><!-- /.container -->
-</div><!-- /.navbar -->
+    </div>
+  </div>
+</nav>

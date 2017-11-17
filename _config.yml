@@ -1,8 +1,22 @@
 url: /
 permalink: /:title
 
-pygments: true
-paginate: 5
+highlighter: true
+paginate: 6
+
+plugins: [jekyll-paginate, jekyll-feed]
+
+author:
+  display_name: Joshua Minnie
+  gravatar: 0d9ad0a17b1f1e22d38997ecc8269596
+  email: me@joshuaminnie.com
+  web: http://joshuaminnie.com/
+  linkedin: joshua.minnie
+  twitter: joshminnie
+  github: joshminnie
+  instagram: joshminnie
+  stackoverflow: 438275/josh
+  bio: I live and breath the web. I love spending time with my family. If I'm not doing either of those, I'm probably sleeping. Owner of <a href="http://nissisolutions.com" target="_blank">Nissi Solutions</a>.
 
 authors:
   josh:
@@ -11,9 +25,7 @@ authors:
     email: me@joshuaminnie.com
     web: http://joshuaminnie.com/
     linkedin: joshua.minnie
-    appnet: joshminnie
     twitter: joshminnie
     github: joshminnie
-    bitbucket: joshminnie
     stackoverflow: 438275/josh
     bio: I live and breath the web. I love spending time with my family. If I'm not doing either of those, I'm probably sleeping. Owner of <a href="http://nissisolutions.com" target="_blank">Nissi Solutions</a>.

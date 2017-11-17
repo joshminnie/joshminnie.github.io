@@ -2,17 +2,15 @@
 layout: default
 comments: true
 ---
-{% assign author = site.authors[page.author] %}
-
 <div class="row">
-  <div class="col-12 col-lg-12">
-    <article class="post">
+  <div class="col-md-12">
+    <article>
       <h1 class="post-title">{{ page.title }}</h1>
       <div class="post-content">
         {{ content }}
       </div>
       <div class="meta">
-        <div class="author">{{ author.display_name }}</div>
+        <div class="author">{{ site.author.display_name }}</div>
         <div class="date">{{ page.date | date: "%m-%d-%Y" }}</div>
         <div class="tags">
           <ul class="list-inline">

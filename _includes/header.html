@@ -1,7 +1,14 @@
-<header>
-  <h1 class="header">Joshua Minnie</h1>
-  <p class="header">Christian, husband, father, son, developer and blogger.</p>
-  <ul>
-    <li><a class="buttons github" href="https://github.com/joshminnie">Github Profile</a></li>
-  </ul>
-</header>
+<div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/assets/img/bg10.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h1 class="title">
+          {{page.title}}
+          {% if page.subtitle != '' %}
+            <br><small>{{page.subtitle}}</small>
+          {% endif %}
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

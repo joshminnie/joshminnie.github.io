@@ -1,18 +1,17 @@
 <aside id="sidebar">
-  {% assign author = site.authors['josh'] %}
   <div class="thumbnail">
-    <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=320" class="media-object" >
+    <img src="http://www.gravatar.com/avatar/{{site.author.gravatar}}?s=320" class="media-object" >
     <div class="caption">
-      <h4 class="author">{{ author.display_name }}</h4>
+      <h4 class="author">{{site.author.display_name}}</h4>
       <ul class="list-inline">
-        <li><a href="http://linkedin.com/in/{{ author.linkedin }}"><i class="icon-linkedin icon-large"></i></a></li>
-        <li><a href="http://alpha.app.net/{{ author.appnet }}"><i class="icon-adn icon-large"></i></a></li>
-        <li><a href="http://twitter.com/{{ author.twitter }}"><i class="icon-twitter icon-large"></i></a></li>
-        <li><a href="http://github.com/{{ author.github }}"><i class="icon-github icon-large"></i></a></li>
-        <li><a href="http://bitbucket.org/{{ author.bitbucket }}"><i class="icon-bitbucket icon-large"></i></a></li>
-        <li><a href="http://stackoverflow.com/users/{{ author.stackoverflow }}"><i class="icon-stackexchange icon-large"></i></a></li>
+        <li><a href="http://linkedin.com/in/{{site.author.linkedin}}"><i class="icon-linkedin icon-large"></i></a></li>
+        <li><a href="http://alpha.app.net/{{site.author.appnet}}"><i class="icon-adn icon-large"></i></a></li>
+        <li><a href="http://twitter.com/{{site.author.twitter}}"><i class="icon-twitter icon-large"></i></a></li>
+        <li><a href="http://github.com/{{site.author.github}}"><i class="icon-github icon-large"></i></a></li>
+        <li><a href="http://bitbucket.org/{{site.author.bitbucket}}"><i class="icon-bitbucket icon-large"></i></a></li>
+        <li><a href="http://stackoverflow.com/users/{{site.author.stackoverflow}}"><i class="icon-stackexchange icon-large"></i></a></li>
       </ul>
-      <p>{{ author.bio }}
+      <p>{{site.author.bio}}
     </div>
   </div>
 </aside>
